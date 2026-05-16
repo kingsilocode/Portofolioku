@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@theme {
+  --color-purple-accent: #a855f7;
+  --color-purple-dark: #7c3aed;
+  --color-purple-deep: #581c87;
+}
+
 *{
     font-family: 'JetBrains Mono', monospace;
     scroll-behavior: smooth;
@@ -10,13 +16,13 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #0a0a0a; /* sama kayak tema dark kamu */
+  background-color: #000000;
   overflow-x: hidden;
 }
 
 
 :root{
-    ---primary-color: oklch(100% 0 0);
+    ---primary-color: #a855f7;
 
 }
 
@@ -37,7 +43,7 @@ html, body {
 
 .discord-avatar:hover {
     transform: scale(1.1);
-    border-color: #5865f2;
+    border-color: #a855f7;
 }
 
 .status-dot {
@@ -100,13 +106,13 @@ html, body {
 .glass-effect {
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 .glass-bg {
-    background: oklch(3.038% 0.02105 264.073 / 0.811);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 @media (max-width: 640px) {
@@ -189,15 +195,15 @@ html, body {
         
         .glass-effect {
             backdrop-filter: blur(12px);
-            background-color: oklch(13% 0.028 261.692);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(168, 85, 247, 0.2);
         }
         
         @media (prefers-color-scheme: dark) {
             .glass-effect {
-                background-color: oklch(13% 0.028 261.692);
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                background-color: rgba(0, 0, 0, 0.7);
+                border: 1px solid rgba(168, 85, 247, 0.15);
             }
         }
         
@@ -207,7 +213,7 @@ html, body {
             bottom: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-8px);
-            background: linear-gradient(135deg, #6b7280, #374151);
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
             color: white;
             padding: 4px 10px;
             border-radius: 12px;
@@ -217,7 +223,7 @@ html, body {
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 10px rgba(168, 85, 247, 0.3);
             z-index: 10;
         }
         
@@ -231,7 +237,7 @@ html, body {
             height: 0;
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
-            border-top: 5px solid #374151;
+            border-top: 5px solid #7c3aed;
         }
         
         .nav-item:hover .nav-badge {
@@ -242,21 +248,21 @@ html, body {
         
         /* Active state */
         .nav-item.active {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            color: rgb(255, 255, 255);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.05));
+            color: #c084fc;
             transform: translateY(-2px);
         }
         
         .nav-item.active i {
-            color: rgb(255, 255, 255);
+            color: #c084fc;
             transform: scale(1.1);
         }
         
         /* Pulsing effect for active item */
         @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-            70% { box-shadow: 0 0 0 5px rgba(255, 255, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4); }
+            70% { box-shadow: 0 0 0 5px rgba(168, 85, 247, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
         }
         
         .nav-item.active {
@@ -290,7 +296,7 @@ html, body {
                 color: var(---primary-color);
             }
             50%{
-                color: oklch(62.078% 0.20567 259.002 / 0);
+                color: rgba(168, 85, 247, 0);
             }
             0%{
                 color: var(---primary-color);

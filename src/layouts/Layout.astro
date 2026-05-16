@@ -8,6 +8,16 @@ const linkSmkn = "https://smkn1sumbawa.sch.id/";
 const username = "SiloKusuma";
 const res = await fetch(`https://api.github.com/users/${username}`);
 const data = await res.json();
+
+let reposData = [];
+try {
+  const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=6&type=owner&direction=desc`);
+  if (reposRes.ok) {
+    reposData = await reposRes.json();
+  }
+} catch (e) {
+  // fallback to client-side fetch
+}
 ---
 
 
@@ -30,13 +40,13 @@ const data = await res.json();
 				</video>
 
 				<div
-					class="absolute bottom-0 left-0 w-full h-40 md:h-full bg-gradient-to-t from-gray-950/80 to-transparent"
+					class="absolute bottom-0 left-0 w-full h-40 md:h-full bg-gradient-to-t from-black/80 to-transparent"
 				>
 				</div>
 			</div>
 		</section>
 
-		<section class="bg-gray-950">
+		<section class="bg-black">
 			<div
 				class="flex items-center gap-2 md:gap-8 justify-center max-md:items-start mr-[560px] h-[200px] max-md:h-60 max-md:mr-6 max-md:ml-6 max-md:flex-col"
 			>
@@ -45,7 +55,7 @@ const data = await res.json();
 						height={145}
                         width={145}
 						src={data.avatar_url}
-						class={"rounded-full border-3 max-md:h-30 mt-5 max-md:w-30 border-gray-900"}
+						class={"rounded-full border-3 max-md:h-30 mt-5 max-md:w-30 border-purple-950/80"}
 						alt={"avatar"}
 					/>
 				</div>
@@ -57,7 +67,7 @@ const data = await res.json();
 			</div>
 			<!-- main page -->
 			<div
-				class="p-8 mx-auto ml-70 scrolling-section mr-60 max-md:ml-0 max-md:mr-2 border-b-2 border-gray-900"
+				class="p-8 mx-auto ml-70 scrolling-section mr-60 max-md:ml-0 max-md:mr-2 border-b-2 border-purple-950"
 			>
 				<p class="text-white">
 					A Junior Frontend Developer passionate about creating
@@ -94,19 +104,19 @@ const data = await res.json();
 				class="mx-auto text-left max-w-4xl max-md:ml-4 max-md:mr-4 px-4 glass-effect pt-5 rounded-md"
 			>
 				<p class="text-white mb-5">
-					Hi, I'm <span class="text-gray-300"
+					Hi, I'm <span class="text-purple-300"
 						>Marvin Silo Kusuma</span
-					>, a 16-year-old <span class="text-gray-300"
+					>, a 16-year-old <span class="text-purple-300"
 						>Junior Frontend Developer</span
 					> from Indonesia with a deep passion for crafting interactive
 					and user-friendly web experiences.<br><br> Ever since I started exploring
 					web development, I have been fascinated by the process of turning
 					ideas into functional and visually appealing applications. I
-					am currently studying at <span class="text-gray-300"
+					am currently studying at <span class="text-purple-300"
 						><a
 							href={linkSmkn}
 							target="_blank"
-							class="hover:underline">SMKN 1 Sumbawa Besar</a
+							class="hover:underline hover:text-purple-400">SMKN 1 Sumbawa Besar</a
 						></span
 					>, where I am developing a solid foundation in technology
 					and software development.<br><br> Alongside my studies, I dedicate
@@ -135,31 +145,31 @@ const data = await res.json();
 				<p class="text-white font-bold text-3xl mr-2">My Setup</p>
 			</div>
 			<div class="mx-auto text-left max-w-4xl max-md:ml-3 max-md:mr-4 px-4 glass-effect pt-5 rounded-md">
-				<div class="absolute h-122 max-md:h-52 transition-all rounded-sm bg-gradient-to-t from-gray-950/80 to-transparent  max-md:w-100 w-225">
+				<div class="absolute h-122 max-md:h-52 transition-all rounded-sm bg-gradient-to-t from-black/80 to-transparent  max-md:w-100 w-225">
 					<div class="flex h-150 max-md:h-50 justify-center items-center">
-						<p class="text-white text-3xl max-md:text-sm"><span class="text-gray-300"><a href="https://omarchy.org/" target="_blank" class="hover:underline">Omarchy</a></span> + <a href="https://hypr.land/" target="_blank" class="hover:underline">Hyprland</a> </p></div>
+						<p class="text-white text-3xl max-md:text-sm"><span class="text-purple-300"><a href="https://omarchy.org/" target="_blank" class="hover:underline hover:text-purple-400">Omarchy</a></span> + <a href="https://hypr.land/" target="_blank" class="hover:underline hover:text-purple-400">Hyprland</a> </p></div>
 					</div>
 				<Image src={Setup} alt={'setup'} class={'rounded-sm mb-5 transition-all cursor-pointer'}/>
 			</div>
 			<div class="flex justify-center items-center text-sm mt-8 mb-5">
-				<a href="https://github.com/SiloKusuma/SiloKusuma-Dotfiles" target="_blank" class="text-gray-600 cursor-pointer hover:underline">Want to my I3wm Dotfiles?</a>
+				<a href="https://github.com/SiloKusuma/SiloKusuma-Dotfiles" target="_blank" class="text-gray-600 cursor-pointer hover:underline hover:text-purple-400">Want to my I3wm Dotfiles?</a>
 			</div>
 			<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
     <div class="grid grid-cols-4 gap-4  md:grid-cols-4 max-md:text-sm sm:grid-cols-4 ml-5 mr-5 mb-5">
         <div class="flex flex-col mt-2">
-            <p class="text-gray-300 text-sm">DISTRO</p>
-            <p class="text-gray-300 text-xs">Omarchy</p>
+            <p class="text-purple-300 text-sm">DISTRO</p>
+            <p class="text-purple-300 text-xs">Omarchy</p>
         </div>
         <div class="flex flex-col mt-2">
-            <p class="text-gray-300 text-sm">DEVICE</p>
+            <p class="text-purple-300 text-sm">DEVICE</p>
             <p class="text-white text-xs">Advan Workpro</p>
         </div>
         <div class="flex flex-col mt-2">
-            <p class="text-gray-300 text-sm">CPU</p>
+            <p class="text-purple-300 text-sm">CPU</p>
             <p class="text-white text-xs">i5-12450H</p>
         </div>
         <div class="flex flex-col mt-2">
-            <p class="text-gray-300 text-sm">WM</p>
+            <p class="text-purple-300 text-sm">WM</p>
             <p class="text-white text-xs">Hyprland</p>
         </div>
     </div>
@@ -173,7 +183,7 @@ const data = await res.json();
 		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
 			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
 				<div class="flex items-center justify-center gap-4">
-					<i class="ri-briefcase-3-line text-gray-300 bg-gray-900 p-2 rounded"></i>
+					<i class="ri-briefcase-3-line text-purple-400 bg-purple-950/60 p-2 rounded"></i>
 					<div class="flex flex-col">
 						<p class="text-white">Junior Experince</p>
 						<p class="text-sm text-gray-500">Over 1 year of experience developing responsive and user-friendly web interfaces using modern front-end technologies.</p>
@@ -185,7 +195,7 @@ const data = await res.json();
 		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
 			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
 				<div class="flex items-center justify-center gap-4">
-					<i class="ri-code-s-slash-line text-gray-300 bg-gray-900 p-2 rounded"></i>
+					<i class="ri-code-s-slash-line text-purple-400 bg-purple-950/60 p-2 rounded"></i>
 					<div class="flex flex-col">
 						<p class="text-white">Tech Stack</p>
 						<p class="text-sm text-gray-500">Experienced with front-end frameworks and modern web technologies for building clean, interactive user experiences.</p>
@@ -197,7 +207,7 @@ const data = await res.json();
 		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
 			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
 				<div class="flex items-center justify-center gap-4 ">
-					<i class="ri-graduation-cap-fill text-gray-300 bg-gray-900 p-2 rounded"></i>
+					<i class="ri-graduation-cap-fill text-purple-400 bg-purple-950/60 p-2 rounded"></i>
 					<div class="flex flex-col">
 						<p class="text-white">Continous Learning</p>
 						<p class="text-sm text-gray-500">Passionate about continuous learning currently pursuing Computer and Network Engineering at SMKN 1 Sumbawa Besar and expanding knowledge in web technologies.</p>
@@ -209,7 +219,7 @@ const data = await res.json();
 		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
 			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
 				<div class="flex items-center justify-center gap-4">
-					<i class="ri-rocket-2-fill text-gray-300 bg-gray-900 p-2 rounded"></i>
+					<i class="ri-rocket-2-fill text-purple-400 bg-purple-950/60 p-2 rounded"></i>
 					<div class="flex flex-col">
 						<p class="text-white">Continous Learning</p>
 						<p class="text-sm text-gray-500">Over 1 year of experience developing responsive and user-friendly web interfaces using modern front-end technologies.</p>
@@ -229,14 +239,14 @@ const data = await res.json();
 	<div class="flex items-center max-md:flex-col max-md:justify-center justify-start gap-4">
 		<div class="flex flex-col">
 			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
-				<p class="text-gray-300 text-1xl">Languages</p>
+				<p class="text-purple-300 text-1xl">Languages</p>
 		<div class="flex gap-3">
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Javascript</p>
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Python</p>
 		</div>
 			</div>
 			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
-				<p class="text-gray-300 text-1xl">Frontend</p>
+				<p class="text-purple-300 text-1xl">Frontend</p>
 		<div class="flex gap-3">
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">TailwindCSS</p>
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Astro</p>
@@ -246,7 +256,7 @@ const data = await res.json();
 		</div>
 			</div>
 			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
-				<p class="text-gray-300 text-1xl">Databases</p>
+				<p class="text-purple-300 text-1xl">Databases</p>
 		<div class="flex gap-3">
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Supabase</p>
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">MySQL</p>
@@ -254,7 +264,7 @@ const data = await res.json();
 		</div>
 			</div>
 			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
-				<p class="text-gray-300 text-1xl">Tools</p>
+				<p class="text-purple-300 text-1xl">Tools</p>
 		<div class="flex gap-3">
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Git</p>
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Nvim</p>
@@ -277,8 +287,8 @@ const data = await res.json();
 			<p class="text-sm text-center mt-2">I enjoy contributing to projects that challenge me and help bring ideas to life.</p>
 		</div>
 		<div class="flex mt-8 mb-6 gap-3 max-md:flex-col">
-			<button class="bg-gray-300 py-3 px-3 rounded-full text-sm cursor-pointer transition hover:bg-gray-400"><a href="#contact">Get in touch</a></button>
-			<button class="bg-gray-900 text-gray-400 py-3 px-3 rounded-full text-sm transition hover:text-gray-400"><a href="https://github.com/SiloKusuma">View Github</a></button>
+			<button class="bg-purple-600 py-3 px-3 rounded-full text-sm cursor-pointer transition hover:bg-purple-500"><a href="#contact">Get in touch</a></button>
+			<button class="bg-purple-950/60 text-purple-300 py-3 px-3 rounded-full text-sm transition hover:text-purple-200"><a href="https://github.com/SiloKusuma">View Github</a></button>
 		</div>
 	</div>
 </div>
@@ -291,54 +301,43 @@ const data = await res.json();
 			<h1 class="text-white text-3xl font-bold mb-2">My Projects</h1>
 			<p class="text-gray-500">My most recent work and contributions</p>
 		</div>
-		<div class="grid grid-cols-2 max-md:grid-cols-1 gap-3">
-			<!-- Card Projects -->
-			<div class="px-4 py-6 mx-auto flex flex-col text-gray-200 mt-16 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
-			<div class="flex justify-between items-center">
-  <div class="flex items-center">
-    <i class="ri-github-line mr-3 text-lg text-gray-500"></i>
-    <h1 class="font-semibold">DeepSeek Term</h1>
-  </div>
-  <a href="https://github.com/SiloKusuma/DeepSeek-Term">
-    <i class="ri-external-link-line text-gray-500 text-lg"></i>
-  </a>
-</div>
-<div class="border-b-2 mb-4 mt-2 pb-4 border-gray-900">
-  <p class="text-sm text-gray-500 mt-2">DeepSeek-Term is an elegant and interactive<br> Command Line Interface (CLI) client for chatti..</p>
-</div>
-<div class="flex items-center">
-	<i class="ri-circle-fill text-gray-400 text-xs"></i>
-  <p class="text-sm text-gray-500 ml-1">Python</p>
-</div>
-			
-
+		<div id="projects-grid" class="grid grid-cols-2 max-md:grid-cols-1 gap-3">
+			{Array.isArray(reposData) && reposData.filter(r => !r.fork).slice(0, 6).map(repo => (
+				<div class="px-4 py-6 mx-auto flex flex-col text-gray-200 mt-16 rounded-md border-2 border-purple-950 hover:border-purple-500 transition w-full">
+					<div class="flex justify-between items-center">
+						<div class="flex items-center min-w-0 flex-1">
+							<i class="ri-github-line mr-3 text-lg text-purple-400 flex-shrink-0"></i>
+							<h1 class="font-semibold truncate">{repo.name}</h1>
+						</div>
+						<a href={repo.html_url} target="_blank" class="flex-shrink-0 ml-2">
+							<i class="ri-external-link-line text-purple-400 text-lg"></i>
+						</a>
+					</div>
+					<div class="border-b-2 mb-4 mt-2 pb-4 border-purple-950">
+						<p class="text-sm text-gray-500 mt-2">{repo.description ? repo.description.substring(0, 120) + (repo.description.length > 120 ? '..' : '') : 'No description'}</p>
+					</div>
+					<div class="flex items-center gap-4">
+						{repo.language && (
+							<div class="flex items-center">
+								<i class="ri-circle-fill text-purple-500 text-xs"></i>
+								<p class="text-sm text-gray-500 ml-1">{repo.language}</p>
+							</div>
+						)}
+						<div class="flex items-center">
+							<i class="ri-star-line text-gray-500 text-sm"></i>
+							<p class="text-sm text-gray-500 ml-1">{repo.stargazers_count}</p>
+						</div>
+						<div class="flex items-center">
+							<i class="ri-git-fork-line text-gray-500 text-sm"></i>
+							<p class="text-sm text-gray-500 ml-1">{repo.forks_count}</p>
+						</div>
+					</div>
+				</div>
+			))}
 		</div>
-			<div class="px-4 py-6 mx-auto flex flex-col text-gray-200 mt-16 max-md:mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
-			<div class="flex justify-between items-center">
-  <div class="flex items-center">
-    <i class="ri-github-line mr-3 text-lg text-gray-500"></i>
-    <h1 class="font-semibold">My i3WM Dotfiles</h1>
-  </div>
-  <a href="https://github.com/SiloKusuma/SiloKusuma-Dotfiles">
-    <i class="ri-external-link-line text-gray-500 text-lg"></i>
-  </a>
-</div>
-<div class="border-b-2 mb-4 mt-2 pb-4 border-gray-900">
-  <p class="text-sm text-gray-500 mt-2">The configuration achieves a clean,<br> minimalist aesthetic with a dark theme rounde...</p>
-</div>
-<div class="flex items-center">
-	<i class="ri-circle-fill text-gray-500 text-xs"></i>
-  <p class="text-sm text-gray-500 ml-1">CSS</p>
-</div>
-			
- 
-			
-
-		</div>
-
 	</div>
 	<div class="flex justify-center items-center mt-8">
-			<a href="https://github.com/SiloKusuma" target="_blank" class="glass-effect px-4 py-3 rounded-md hover:text-white transition"><i class="ri-github-fill text-lg hover:text-white transition"></i> View More on Github</a>
+			<a href="https://github.com/SiloKusuma" target="_blank" class="glass-effect px-4 py-3 rounded-md hover:text-purple-300 transition"><i class="ri-github-fill text-lg hover:text-white transition"></i> View More on Github</a>
 		</div>
 </section>
 
@@ -354,10 +353,10 @@ const data = await res.json();
 		</div>
 		<div class="grid grid-cols-3 max-md:grid-cols-1 gap-3">
 			<!-- Card Projects -->
-			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 rounded-md border-2 border-purple-950 hover:border-purple-500 transition">
     <div class="flex justify-between items-center">
         <div class="flex items-center">
-            <i class="ri-mail-line mr-3 px-2 py-1 rounded-md bg-gray-800 text-lg text-gray-400"></i>
+            <i class="ri-mail-line mr-3 px-2 py-1 rounded-md bg-purple-950/60 text-lg text-purple-400"></i>
             <h1 class="font-semibold">Email</h1>
         </div>
     </div>
@@ -369,40 +368,40 @@ const data = await res.json();
     </div>
 </div>
 			
-			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 max-md:mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 max-md:mt-2 rounded-md border-2 border-purple-950 hover:border-purple-500 transition">
     <div class="flex justify-between items-center">
         <div class="flex items-center">
-            <i class="ri-phone-fill mr-3 px-2 py-1 rounded-md bg-gray-800 text-lg text-gray-400"></i>
+            <i class="ri-phone-fill mr-3 px-2 py-1 rounded-md bg-purple-950/60 text-lg text-purple-400"></i>
             <h1 class="font-semibold">Phone</h1>
         </div>
     </div>
     <div class="text-left">
-        <p class="text-md text-white mt-2">+62 831-417-2019</p>
+        <p class="text-md text-white mt-2">+62 812-2013-6633</p>
     </div>
     <div class="flex items-center justify-start">
         <p class="text-sm text-gray-500 mt-1">Call / Whatsapp</p>
     </div>
 </div>
 			
-			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 max-md:mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 max-md:mt-2 rounded-md border-2 border-purple-950 hover:border-purple-500 transition">
     <div class="flex justify-between items-center">
         <div class="flex items-center">
-            <i class="ri-map-pin-2-fill mr-3 px-2 py-1 rounded-md bg-gray-800 text-lg text-gray-400"></i>
+            <i class="ri-map-pin-2-fill mr-3 px-2 py-1 rounded-md bg-purple-950/60 text-lg text-purple-400"></i>
             <h1 class="font-semibold">Location</h1>
         </div>
     </div>
     <div class="text-left">
-        <p class="text-md text-white mt-2">Sumbawa Besar, West Nusa Tenggara</p>
+        <p class="text-md text-white mt-2">Semarang, Central Java</p>
     </div>
     <div class="flex items-center justify-start">
         <p class="text-sm text-gray-500 mt-1">Indonesia</p>
     </div>
 </div>
 			
-			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-purple-950 hover:border-purple-500 transition">
     <div class="flex justify-between items-center">
         <div class="flex items-center">
-            <i class="ri-github-fill mr-3 px-2 py-1 rounded-md bg-gray-800 text-lg text-gray-400"></i>
+            <i class="ri-github-fill mr-3 px-2 py-1 rounded-md bg-purple-950/60 text-lg text-purple-400"></i>
             <h1 class="font-semibold">Github</h1>
         </div>
     </div>
@@ -414,10 +413,10 @@ const data = await res.json();
     </div>
 </div>
 			
-			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-purple-950 hover:border-purple-500 transition">
     <div class="flex justify-between items-center">
         <div class="flex items-center">
-            <i class="ri-global-fill mr-3 px-2 py-1 rounded-md bg-gray-800 text-lg text-gray-400"></i>
+            <i class="ri-global-fill mr-3 px-2 py-1 rounded-md bg-purple-950/60 text-lg text-purple-400"></i>
             <h1 class="font-semibold">Portofolio</h1>
         </div>
     </div>
@@ -428,10 +427,10 @@ const data = await res.json();
         <p class="text-sm text-gray-500 mt-1">Visit Repository</p>
     </div>
 </div>
-			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-purple-950 hover:border-purple-500 transition">
     <div class="flex justify-between items-center">
         <div class="flex items-center">
-            <i class="ri-spotify-fill mr-3 px-2 py-1 rounded-md bg-gray-800 text-lg text-gray-400"></i>
+            <i class="ri-spotify-fill mr-3 px-2 py-1 rounded-md bg-purple-950/60 text-lg text-purple-400"></i>
             <h1 class="font-semibold">Spotify</h1>
         </div>
     </div>
@@ -452,16 +451,16 @@ const data = await res.json();
         </p>
 
         <div class="grid grid-cols-4 max-md:grid-cols-2 gap-4 mt-4">
-            <div class="bg-gray-800 rounded-full px-3 py-1 hover:bg-gray-700 transition">
+            <div class="bg-purple-950/50 rounded-full px-3 py-1 hover:bg-purple-900 transition">
                 <p class="text-gray-400 text-sm text-center">Remote Work</p>
             </div>
-            <div class="bg-gray-800 rounded-full flex justify-center items-center px-3 py-1 hover:bg-gray-700 transition">
+            <div class="bg-purple-950/50 rounded-full flex justify-center items-center px-3 py-1 hover:bg-purple-900 transition">
                 <p class="text-gray-400 text-sm text-center">Freelance</p>
             </div>
-            <div class="bg-gray-800 rounded-full px-3 py-1 flex justify-center items-center hover:bg-gray-700 transition">
+            <div class="bg-purple-950/50 rounded-full px-3 py-1 flex justify-center items-center hover:bg-purple-900 transition">
                 <p class="text-gray-400 text-sm text-center">Part-time</p>
             </div>
-            <div class="bg-gray-800 rounded-full px-3 py-1 flex justify-center items-center hover:bg-gray-700 transition">
+            <div class="bg-purple-950/50 rounded-full px-3 py-1 flex justify-center items-center hover:bg-purple-900 transition">
                 <p class="text-gray-400 text-sm text-center">Let's Build</p>
             </div>
         </div>
@@ -479,12 +478,12 @@ const data = await res.json();
 
 
 <!-- footer -->
-<div class="border-t-2 border-gray-900 mt-16 flex justify-between items-center">
+<div class="border-t-2 border-purple-950 mt-16 flex justify-between items-center">
 	<div class="flex mt-6">
 		<p>2025 Marvin Silo Kusuma. All rights reserved.</p>
 	</div>
 	<div class="ml-2 mt-8">
-		<i class="ri-github-fill text-2xl text-gray-500"></i>
+		<i class="ri-github-fill text-2xl text-purple-400"></i>
 	</div>
 </div>
 </section>
@@ -505,6 +504,62 @@ inView(
   },
   { amount: 0.25 }
 );
+</script>
+
+<script>
+const username = "SiloKusuma";
+
+async function fetchProjects() {
+  const grid = document.getElementById("projects-grid");
+  if (!grid || grid.dataset.loaded) return;
+  
+  try {
+    const res = await fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=6&type=owner&direction=desc`);
+    if (!res.ok) return;
+    const repos = await res.json();
+    const filtered = repos.filter(r => !r.fork).slice(0, 6);
+    if (filtered.length === 0) return;
+
+    grid.innerHTML = filtered.map(repo => `
+      <div class="px-4 py-6 mx-auto flex flex-col text-gray-200 mt-16 rounded-md border-2 border-purple-950 hover:border-purple-500 transition w-full">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center min-w-0 flex-1">
+            <i class="ri-github-line mr-3 text-lg text-purple-400 flex-shrink-0"></i>
+            <h1 class="font-semibold truncate">${escHtml(repo.name)}</h1>
+          </div>
+          <a href="${escHtml(repo.html_url)}" target="_blank" class="flex-shrink-0 ml-2">
+            <i class="ri-external-link-line text-purple-400 text-lg"></i>
+          </a>
+        </div>
+        <div class="border-b-2 mb-4 mt-2 pb-4 border-purple-950">
+          <p class="text-sm text-gray-500 mt-2">${repo.description ? escHtml(repo.description.substring(0, 120) + (repo.description.length > 120 ? '..' : '')) : 'No description'}</p>
+        </div>
+        <div class="flex items-center gap-4">
+          ${repo.language ? `<div class="flex items-center"><i class="ri-circle-fill text-purple-500 text-xs"></i><p class="text-sm text-gray-500 ml-1">${escHtml(repo.language)}</p></div>` : ''}
+          <div class="flex items-center">
+            <i class="ri-star-line text-gray-500 text-sm"></i>
+            <p class="text-sm text-gray-500 ml-1">${repo.stargazers_count}</p>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-git-fork-line text-gray-500 text-sm"></i>
+            <p class="text-sm text-gray-500 ml-1">${repo.forks_count}</p>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    grid.dataset.loaded = "true";
+  } catch (e) {
+    // keep build-time rendered data
+  }
+}
+
+function escHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+document.addEventListener("DOMContentLoaded", fetchProjects);
 </script>
 
 	
