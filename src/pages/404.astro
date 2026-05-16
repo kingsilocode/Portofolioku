@@ -1,0 +1,26 @@
+---
+import Navigation from "../components/Navigation.astro"
+import '/src/styles/global.css'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Found</title>
+</head>
+<body>
+    <Navigation/>
+<div class="h-screen flex flex-col justify-center items-center bg-gray-950 gap-8">
+    <div class="flex items-center">
+        <i class="ri-emotion-unhappy-fill text-white text-6xl"></i>
+    <h1 class="text-white text-4xl mr-16 ml-3">Not Found</h1>
+    </div>
+    <div>
+        <a href="/" class="underline text-white">Back</a>
+    </div>
+</div>
+    
+</body>
+</html>

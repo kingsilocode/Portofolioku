@@ -1,0 +1,193 @@
+---
+import "/src/styles/global.css";
+import { ClientRouter } from "astro:transitions";
+---
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+/>
+
+
+
+<!-- V1 -->
+<!-- mobile navbar -->
+<!-- <nav class="hidden max-md:flex fixed top-6 right-5 z-50 w-auto rounded-md">
+  <div class="rounded-md flex justify-end items-end">
+    <button class="cursor-pointer alert"
+      ><i class="ri-menu-4-line text-white text-3xl"></i></button
+    >
+  </div>
+</nav>
+
+<div
+  id="mobile-bar"
+  class="md:hidden sm:hidden fixed h-screen w-full glass-bg z-10 transform transition-transform duration-300 -translate-x-full"
+>
+  <div class="flex flex-col justify-center items-center mt-16 gap-6 text-white">
+    <a href="/">/Home</a>
+    <a href="#about">/About</a>
+    <a href="#projects">/Projects</a>
+    <a href="#contact">/Contact</a>
+  </div>
+</div> -->
+
+<!-- V2 -->
+<nav id="mobile-bottom-nav" class="fixed bottom-0 left-0 right-0 z-50 md:hidden transform transition-transform duration-300 translate-y-full">
+  <div class="glass-effect border-t rounded-t-3xl border-gray-700/50">
+    <div class="flex justify-around items-center py-3">
+      <a href="/" class="flex flex-col items-center text-white transition-all hover:text-blue-400">
+        <i class="ri-home-4-line text-xl"></i>
+        <span class="text-xs mt-1">Home</span>
+      </a>
+      <a href="#about" class="flex flex-col items-center text-white transition-all hover:text-blue-400">
+        <i class="ri-user-line text-xl"></i>
+        <span class="text-xs mt-1">About</span>
+      </a>
+      <a href="#projects" class="flex flex-col items-center text-white transition-all hover:text-blue-400">
+        <i class="ri-briefcase-line text-xl"></i>
+        <span class="text-xs mt-1">Projects</span>
+      </a>
+      <a href="#contact" class="flex flex-col items-center text-white transition-all hover:text-blue-400">
+        <i class="ri-contacts-line text-xl"></i>
+        <span class="text-xs mt-1">Contact</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<nav
+  class="navbar max-md:hidden fixed top-8 left-1/2 transform -translate-x-1/2 z-50 w-auto rounded-md"
+>
+  <div
+    class="flex items-center justify-between gap-8 bg-transparent glass-effect rounded-md px-8 py-4 max-md:h-14 border border-gray-700/50"
+  >
+    <div class="flex items-center">
+      <i class="ri-terminal-line mr-5 max-md:ml-5 text-md text-white"></i>
+      <p class="text-white">Marvin Silo Kusuma</p>
+    </div>
+    <div>
+      <button
+        ><i class="ri-menu-4-line text-lg text-white ml-4 mr-4 md:hidden"
+        ></i></button
+      >
+    </div>
+    <div class="text-sm ml-2 max-md:hidden">
+      <a
+        href="/"
+        class="text-gray-400 hover:underline hover:text-white transition-all"
+        >/home</a
+      >
+      <a
+        href="#about"
+        class="text-gray-400 hover:underline hover:text-white transition-all"
+        >/about</a
+      >
+      <a
+        href="#projects"
+        class="text-gray-400 hover:underline hover:text-white transition-all"
+        >/projects</a
+      >
+      <a
+        href="#contact"
+        class="text-gray-400 hover:underline hover:text-white transition-all"
+        >/contact</a
+      >
+    </div>
+    <div>
+      <a href="https://github.com/SiloKusuma" target="_blank"
+        ><i class="ri-github-fill text-white text-2xl max-md:hidden"></i></a
+      >
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileBottomNav = document.getElementById('mobile-bottom-nav');
+  const menuButton = document.querySelector('button.alert');
+  let lastScrollY = window.scrollY;
+  let isNavVisible = false;
+
+  // Show/hide navbar on scroll
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scroll down - hide navbar
+      mobileBottomNav.classList.add('translate-y-full');
+      isNavVisible = false;
+    } else {
+      // Scroll up - show navbar
+      mobileBottomNav.classList.remove('translate-y-full');
+      isNavVisible = true;
+    }
+    
+    lastScrollY = currentScrollY;
+  });
+
+  // Menu button click untuk show/hide navbar
+  menuButton.addEventListener('click', () => {
+    if (isNavVisible) {
+      mobileBottomNav.classList.add('translate-y-full');
+      isNavVisible = false;
+    } else {
+      mobileBottomNav.classList.remove('translate-y-full');
+      isNavVisible = true;
+    }
+  });
+
+  // Smooth scroll untuk anchor links
+  document.querySelectorAll('#mobile-bottom-nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Hide navbar setelah klik link
+        setTimeout(() => {
+          mobileBottomNav.classList.add('translate-y-full');
+          isNavVisible = false;
+        }, 500);
+      }
+    });
+  });
+});
+</script>
+
+
+
+
+
+<script>
+  import { animate, stagger, inView } from "motion";
+
+  inView(
+    ".navbar",
+    (element) => {
+      animate(
+        element,
+        { opacity: [0.5, 1], y: [-20, 0] },
+        { ease: [0.39, 0.24, 0.3, 1], duration: 1 },
+      );
+
+      const cards = element.querySelectorAll(".card-projects");
+      if (cards.length > 0) {
+        animate(
+          cards,
+          { opacity: [0, 1], y: [25, 0] },
+          { type: "spring", delay: stagger(0.25, { startDelay: 0.25 }) },
+        );
+      }
+    },
+    { amount: 0.25 },
+  );
+</script>
+
+<ClientRouter />

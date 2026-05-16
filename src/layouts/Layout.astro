@@ -1,0 +1,511 @@
+---
+import "../styles/global.css";
+import { ClientRouter, fade, slide } from "astro:transitions";
+import bgVideo from "../assets/furina.mp4";
+import { Image } from "astro:assets";
+import Setup from "../assets/setup.png";
+const linkSmkn = "https://smkn1sumbawa.sch.id/";
+const username = "SiloKusuma";
+const res = await fetch(`https://api.github.com/users/${username}`);
+const data = await res.json();
+---
+
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+		<title>Marvin Silo Kusuma</title>
+	</head>
+	<body>
+		<section class="flex justify-center items-center">
+			<div class="relative w-full h-[200px] md:h-[400px]">
+				<video
+					class="absolute top-0 left-0 w-full h-full object-cover object-center"
+					autoplay
+					muted
+					loop
+				>
+					<source src={bgVideo} type="video/mp4" />
+				</video>
+
+				<div
+					class="absolute bottom-0 left-0 w-full h-40 md:h-full bg-gradient-to-t from-gray-950/80 to-transparent"
+				>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-gray-950">
+			<div
+				class="flex items-center gap-2 md:gap-8 justify-center max-md:items-start mr-[560px] h-[200px] max-md:h-60 max-md:mr-6 max-md:ml-6 max-md:flex-col"
+			>
+				<div class="flex flex-col scrolling-section">
+					<Image
+						height={145}
+                        width={145}
+						src={data.avatar_url}
+						class={"rounded-full border-3 max-md:h-30 mt-5 max-md:w-30 border-gray-900"}
+						alt={"avatar"}
+					/>
+				</div>
+				<div class="flex flex-col scrolling-section">
+					<p class="text-white text-3xl font-bold">Marvin Silo Kusuma</p>
+					<p class="text-sm text-gray-500">@SiloKusuma</p>
+					<p class="text-gray-300 text-sm mt-2">{data.bio}</p>
+				</div>
+			</div>
+			<!-- main page -->
+			<div
+				class="p-8 mx-auto ml-70 scrolling-section mr-60 max-md:ml-0 max-md:mr-2 border-b-2 border-gray-900"
+			>
+				<p class="text-white">
+					A Junior Frontend Developer passionate about creating
+					engaging and user-friendly web experiences, continuously
+					learning and improving skills."
+				</p>
+			</div>
+			<div
+				class="mx-auto ml-76 mt-5 mr-60 max-md:ml-8 max-md:mr-2 flex gap-8 max-md:gap-4 max-md:text-sm mb-5"
+			>
+				<div class="flex flex-col">
+					<p class="text-gray-500 text-md">Projects</p>
+					<p id="repo" class="text-white">{data.public_repos}</p>
+				</div>
+				<div class="flex flex-col">
+					<p class="text-gray-500 text-md">Followers</p>
+					<p id="repo" class="text-white">{data.followers}</p>
+				</div>
+				<div class="flex flex-col">
+					<p class="text-gray-500 text-md">Joined</p>
+					<p id="repo" class="text-white">
+						{data.created_at.substring(0, 4)}
+					</p>
+				</div>
+			</div>
+			<!--about page  -->
+			<div
+				id="about"
+				class="about-page mx-auto mt-16 ml-76 mr-60 max-md:ml-8 max-md:mr-2 flex justify-start max-md:justify-center items-center gap-8 max-md:gap-4 max-md:text-sm mb-5"
+			>
+				<p class="text-white font-bold text-3xl mr-2">About Me</p>
+			</div>
+			<div
+				class="mx-auto text-left max-w-4xl max-md:ml-4 max-md:mr-4 px-4 glass-effect pt-5 rounded-md"
+			>
+				<p class="text-white mb-5">
+					Hi, I'm <span class="text-purple-100"
+						>Marvin Silo Kusuma</span
+					>, a 16-year-old <span class="text-indigo-500"
+						>Junior Frontend Developer</span
+					> from Indonesia with a deep passion for crafting interactive
+					and user-friendly web experiences.<br><br> Ever since I started exploring
+					web development, I have been fascinated by the process of turning
+					ideas into functional and visually appealing applications. I
+					am currently studying at <span class="text-indigo-500"
+						><a
+							href={linkSmkn}
+							target="_blank"
+							class="hover:underline">SMKN 1 Sumbawa Besar</a
+						></span
+					>, where I am developing a solid foundation in technology
+					and software development.<br><br> Alongside my studies, I dedicate
+					time to personal projects, experimenting with frontend
+					techniques, improving my coding skills, and learning best
+					practices in building modern web interfaces.<br><br> Beyond web
+					development, I am a Linux enthusiast 🐧. I enjoy customizing
+					my system, tweaking dotfiles, and optimizing my workflow to
+					maximize productivity and efficiency. This curiosity for
+					technology drives me to explore new tools, understand how
+					they work, and make them fit my personal development style.
+					I am motivated by creativity, problem-solving, and
+					continuous learning. I strive to grow as a developer,
+					contribute to the community, and one day create digital
+					solutions that are not only functional but also meaningful
+					and accessible to users.
+				</p>
+			</div>
+			<!-- end about -->
+
+			<!-- my setup 👅 -->
+			<div
+				id="about"
+				class="mx-auto  mt-16 ml-76 mr-60 max-md:ml-8 max-md:mr-2 flex max-md:justify-center justify-start items-center gap-8 max-md:gap-4 max-md:text-sm mb-5"
+			>
+				<p class="text-white font-bold text-3xl mr-2">My Setup</p>
+			</div>
+			<div class="mx-auto text-left max-w-4xl max-md:ml-3 max-md:mr-4 px-4 glass-effect pt-5 rounded-md">
+				<div class="absolute h-122 max-md:h-52 transition-all rounded-sm bg-gradient-to-t from-gray-950/80 to-transparent  max-md:w-100 w-225">
+					<div class="flex h-150 max-md:h-50 justify-center items-center">
+						<p class="text-white text-3xl max-md:text-sm"><span class="text-indigo-500"><a href="https://omarchy.org/" target="_blank" class="hover:underline">Omarchy</a></span> + <a href="https://hypr.land/" target="_blank" class="hover:underline">Hyprland</a> </p></div>
+					</div>
+				<Image src={Setup} alt={'setup'} class={'rounded-sm mb-5 transition-all cursor-pointer'}/>
+			</div>
+			<div class="flex justify-center items-center text-sm mt-8 mb-5">
+				<a href="https://github.com/SiloKusuma/SiloKusuma-Dotfiles" target="_blank" class="text-gray-600 cursor-pointer hover:underline">Want to my I3wm Dotfiles?</a>
+			</div>
+			<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
+    <div class="grid grid-cols-4 gap-4  md:grid-cols-4 max-md:text-sm sm:grid-cols-4 ml-5 mr-5 mb-5">
+        <div class="flex flex-col mt-2">
+            <p class="text-gray-300 text-sm">DISTRO</p>
+            <p class="text-indigo-500 text-xs">Omarchy</p>
+        </div>
+        <div class="flex flex-col mt-2">
+            <p class="text-gray-300 text-sm">DEVICE</p>
+            <p class="text-white text-xs">Advan Workpro</p>
+        </div>
+        <div class="flex flex-col mt-2">
+            <p class="text-gray-300 text-sm">CPU</p>
+            <p class="text-white text-xs">i5-12450H</p>
+        </div>
+        <div class="flex flex-col mt-2">
+            <p class="text-gray-300 text-sm">WM</p>
+            <p class="text-white text-xs">Hyprland</p>
+        </div>
+    </div>
+</div>
+<div class="flex justify-center items-center text-sm mt-8 mb-0">
+				<a class="text-gray-600 text-sm text-center ml-4 mr-5">My Omarchy Setup with Hyprland and Catpuccin Theme</a>
+			</div>
+
+<div id="hehe" class="flex justify-center flex-col text-gray-700 mt-2 p-8">
+	<div class="grid-cols-8 gap-2">
+		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
+			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
+				<div class="flex items-center justify-center gap-4">
+					<i class="ri-briefcase-3-line text-indigo-500 bg-gray-900 p-2 rounded"></i>
+					<div class="flex flex-col">
+						<p class="text-white">Junior Experince</p>
+						<p class="text-sm text-gray-500">Over 1 year of experience developing responsive and user-friendly web interfaces using modern front-end technologies.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
+			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
+				<div class="flex items-center justify-center gap-4">
+					<i class="ri-code-s-slash-line text-indigo-500 bg-gray-900 p-2 rounded"></i>
+					<div class="flex flex-col">
+						<p class="text-white">Tech Stack</p>
+						<p class="text-sm text-gray-500">Experienced with front-end frameworks and modern web technologies for building clean, interactive user experiences.</p>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
+			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
+				<div class="flex items-center justify-center gap-4 ">
+					<i class="ri-graduation-cap-fill text-indigo-500 bg-gray-900 p-2 rounded"></i>
+					<div class="flex flex-col">
+						<p class="text-white">Continous Learning</p>
+						<p class="text-sm text-gray-500">Passionate about continuous learning currently pursuing Computer and Network Engineering at SMKN 1 Sumbawa Besar and expanding knowledge in web technologies.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
+			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
+				<div class="flex items-center justify-center gap-4">
+					<i class="ri-rocket-2-fill text-indigo-500 bg-gray-900 p-2 rounded"></i>
+					<div class="flex flex-col">
+						<p class="text-white">Continous Learning</p>
+						<p class="text-sm text-gray-500">Over 1 year of experience developing responsive and user-friendly web interfaces using modern front-end technologies.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+</div>
+
+
+
+
+<!-- Tech Stack -->
+<div id="tech-stack" class="mx-65 text-left max-w-4xl px-4 pt-5 mt-5 rounded-md max-md:ml-3 max-md:mr-4">
+	<h1 class="text-3xl font-bold text-white mt-2 mb-8 max-md:text-center">Tech Stack</h1>
+	<div class="flex items-center max-md:flex-col max-md:justify-center justify-start gap-4">
+		<div class="flex flex-col">
+			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
+				<p class="text-indigo-500 text-1xl">Languages</p>
+		<div class="flex gap-3">
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Javascript</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Python</p>
+		</div>
+			</div>
+			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
+				<p class="text-indigo-500 text-1xl">Frontend</p>
+		<div class="flex gap-3">
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">TailwindCSS</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Astro</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">React</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">NextJS</p>
+			<!-- <p class="text-white rounded-full text-sm glass-effect px-3 py-2">Bootstrap</p> -->
+		</div>
+			</div>
+			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
+				<p class="text-indigo-500 text-1xl">Databases</p>
+		<div class="flex gap-3">
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Supabase</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">MySQL</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Firebase</p>
+		</div>
+			</div>
+			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
+				<p class="text-indigo-500 text-1xl">Tools</p>
+		<div class="flex gap-3">
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Git</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Nvim</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Linux</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Docker</p>
+		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end Tech Stack -->
+
+<!-- Work with -->
+<div class="mx-65 text-left max-w-4xl  px-4 pt-5 mt-5 glass-bg rounded-md max-md:ml-3 max-md:mr-4">
+	<div class="p-2 flex flex-col justify-center items-center">
+		<div>
+			<p class="text-2xl font-bold text-white">Work With Me</p>
+		</div>
+		<div class="text-gray-500">
+			<p class="text-sm text-center mt-2">I enjoy contributing to projects that challenge me and help bring ideas to life.</p>
+		</div>
+		<div class="flex mt-8 mb-6 gap-3 max-md:flex-col">
+			<button class="bg-indigo-200 py-3 px-3 rounded-full text-sm cursor-pointer transition hover:bg-indigo-300"><a href="#contact">Get in touch</a></button>
+			<button class="bg-gray-900 text-gray-400 py-3 px-3 rounded-full text-sm transition hover:text-indigo-300"><a href="https://github.com/SiloKusuma">View Github</a></button>
+		</div>
+	</div>
+</div>
+<!-- end work with me -->
+
+<!-- Projects page -->
+<section id="projects" class="mt-16">
+	<div class="flex justify-center flex-col items-center" id="card-projects">
+		<div class="text-center">
+			<h1 class="text-white text-3xl font-bold mb-2">My Projects</h1>
+			<p class="text-gray-500">My most recent work and contributions</p>
+		</div>
+		<div class="grid grid-cols-2 max-md:grid-cols-1 gap-3">
+			<!-- Card Projects -->
+			<div class="px-4 py-6 mx-auto flex flex-col text-gray-200 mt-16 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+			<div class="flex justify-between items-center">
+  <div class="flex items-center">
+    <i class="ri-github-line mr-3 text-lg text-gray-500"></i>
+    <h1 class="font-semibold">DeepSeek Term</h1>
+  </div>
+  <a href="https://github.com/SiloKusuma/DeepSeek-Term">
+    <i class="ri-external-link-line text-gray-500 text-lg"></i>
+  </a>
+</div>
+<div class="border-b-2 mb-4 mt-2 pb-4 border-gray-900">
+  <p class="text-sm text-gray-500 mt-2">DeepSeek-Term is an elegant and interactive<br> Command Line Interface (CLI) client for chatti..</p>
+</div>
+<div class="flex items-center">
+	<i class="ri-circle-fill text-indigo-400 text-xs"></i>
+  <p class="text-sm text-gray-500 ml-1">Python</p>
+</div>
+			
+
+		</div>
+			<div class="px-4 py-6 mx-auto flex flex-col text-gray-200 mt-16 max-md:mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+			<div class="flex justify-between items-center">
+  <div class="flex items-center">
+    <i class="ri-github-line mr-3 text-lg text-gray-500"></i>
+    <h1 class="font-semibold">My i3WM Dotfiles</h1>
+  </div>
+  <a href="https://github.com/SiloKusuma/SiloKusuma-Dotfiles">
+    <i class="ri-external-link-line text-gray-500 text-lg"></i>
+  </a>
+</div>
+<div class="border-b-2 mb-4 mt-2 pb-4 border-gray-900">
+  <p class="text-sm text-gray-500 mt-2">The configuration achieves a clean,<br> minimalist aesthetic with a dark theme rounde...</p>
+</div>
+<div class="flex items-center">
+	<i class="ri-circle-fill text-blue-600 text-xs"></i>
+  <p class="text-sm text-gray-500 ml-1">CSS</p>
+</div>
+			
+ 
+			
+
+		</div>
+
+	</div>
+	<div class="flex justify-center items-center mt-8">
+			<a href="https://github.com/SiloKusuma" target="_blank" class="glass-effect px-4 py-3 rounded-md hover:text-white transition"><i class="ri-github-fill text-lg hover:text-white transition"></i> View More on Github</a>
+		</div>
+</section>
+
+
+
+
+
+<section id="contact" class="mt-16">
+	<div class="flex justify-center flex-col items-center" id="card-projects">
+		<div class="text-center">
+			<h1 class="text-white text-3xl font-bold mb-2">Get in Touch</h1>
+			<p class="text-gray-500">Got an exciting project in mind?<br> I love turning creative visions into digital reality.<br> Let's build something amazing together!</p>
+		</div>
+		<div class="grid grid-cols-3 max-md:grid-cols-1 gap-3">
+			<!-- Card Projects -->
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="ri-mail-line mr-3 px-2 py-1 rounded-md bg-indigo-900 text-lg text-indigo-300"></i>
+            <h1 class="font-semibold">Email</h1>
+        </div>
+    </div>
+    <div class="text-left">
+        <p class="text-md text-white mt-2">Fajrulsyaban47@gmail.com</p>
+    </div>
+    <div class="flex items-center justify-start">
+        <p class="text-sm text-gray-500 mt-1">Send me a email</p>
+    </div>
+</div>
+			
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 max-md:mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="ri-phone-fill mr-3 px-2 py-1 rounded-md bg-indigo-900 text-lg text-indigo-300"></i>
+            <h1 class="font-semibold">Phone</h1>
+        </div>
+    </div>
+    <div class="text-left">
+        <p class="text-md text-white mt-2">+62 831-417-2019</p>
+    </div>
+    <div class="flex items-center justify-start">
+        <p class="text-sm text-gray-500 mt-1">Call / Whatsapp</p>
+    </div>
+</div>
+			
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 max-md:mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="ri-map-pin-2-fill mr-3 px-2 py-1 rounded-md bg-indigo-900 text-lg text-indigo-300"></i>
+            <h1 class="font-semibold">Location</h1>
+        </div>
+    </div>
+    <div class="text-left">
+        <p class="text-md text-white mt-2">Sumbawa Besar, West Nusa Tenggara</p>
+    </div>
+    <div class="flex items-center justify-start">
+        <p class="text-sm text-gray-500 mt-1">Indonesia</p>
+    </div>
+</div>
+			
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="ri-github-fill mr-3 px-2 py-1 rounded-md bg-indigo-900 text-lg text-indigo-300"></i>
+            <h1 class="font-semibold">Github</h1>
+        </div>
+    </div>
+    <div class="text-left">
+        <p class="text-md text-white mt-2">Github/SiloKusuma</p>
+    </div>
+    <div class="flex items-center justify-start">
+        <p class="text-sm text-gray-500 mt-1">See all my repository</p>
+    </div>
+</div>
+			
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="ri-global-fill mr-3 px-2 py-1 rounded-md bg-indigo-900 text-lg text-indigo-300"></i>
+            <h1 class="font-semibold">Portofolio</h1>
+        </div>
+    </div>
+    <div class="text-left">
+        <p class="text-md text-white mt-2">SiloKusuma.netlify.app</p>
+    </div>
+    <div class="flex items-center justify-start">
+        <p class="text-sm text-gray-500 mt-1">Visit Repository</p>
+    </div>
+</div>
+			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-2 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <i class="ri-spotify-fill mr-3 px-2 py-1 rounded-md bg-indigo-900 text-lg text-indigo-300"></i>
+            <h1 class="font-semibold">Spotify</h1>
+        </div>
+    </div>
+    <div class="text-left">
+        <p class="text-md text-white mt-2">Zennius!</p>
+    </div>
+    <div class="flex items-center justify-start">
+        <p class="text-sm text-gray-500 mt-1">See my playlist</p>
+    </div>
+</div>
+</section>
+
+<div class="mx-auto text-left max-w-full px-81 max-md:px-6 pt-5 mt-8 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
+    <div class="flex flex-col justify-center items-center mb-5 transition-all cursor-pointer">
+        <h1 class="text-lg text-white mb-2">Available to Work</h1>
+        <p class="text-white text-center max-w-xl">
+            Available for part-time, freelance, or remote projects. Let's collaborate and build something amazing together!
+        </p>
+
+        <div class="grid grid-cols-4 max-md:grid-cols-2 gap-4 mt-4">
+            <div class="bg-indigo-900 rounded-full px-3 py-1 hover:bg-indigo-800 transition">
+                <p class="text-indigo-300 text-sm text-center">Remote Work</p>
+            </div>
+            <div class="bg-indigo-900 rounded-full flex justify-center items-center px-3 py-1 hover:bg-indigo-800 transition">
+                <p class="text-indigo-300 text-sm text-center">Freelance</p>
+            </div>
+            <div class="bg-indigo-900 rounded-full px-3 py-1 flex justify-center items-center hover:bg-indigo-800 transition">
+                <p class="text-indigo-300 text-sm text-center">Part-time</p>
+            </div>
+            <div class="bg-indigo-900 rounded-full px-3 py-1 flex justify-center items-center hover:bg-indigo-800 transition">
+                <p class="text-indigo-300 text-sm text-center">Let's Build</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer -->
+<div class="border-t-2 border-gray-900 mt-16 flex justify-between items-center">
+	<div class="flex mt-6">
+		<p>2025 Marvin Silo Kusuma. All rights reserved.</p>
+	</div>
+	<div class="ml-2 mt-8">
+		<i class="ri-github-fill text-2xl text-gray-500"></i>
+	</div>
+</div>
+</section>
+	</body>
+
+	<script>
+  import { animate, stagger, inView } from "motion";
+
+inView(
+  ".scrolling-section",
+  (element) => {
+    animate(element, { opacity: [0.5, 1], y: [50, 0] }, { ease: [0.39, 0.24, 0.3, 1], duration: 1 });
+
+    const cards = element.querySelectorAll(".card-projects");
+    if (cards.length > 0) {
+      animate(cards, { opacity: [0, 1], y: [25, 0] }, { type: "spring", delay: stagger(0.25, { startDelay: 0.25 }) });
+    }
+  },
+  { amount: 0.25 }
+);
+</script>
+
+	
+<ClientRouter />
